@@ -2,13 +2,13 @@
 
 /**
  * check_cycle - checks if a singly linked list
- * @list: pointer
+ * @mynot: pointer
  * Return: 1 or 0
  */
-int check_cycle(listint_t *list)
+int check_cycle(listint_t *mynot)
 {
-	listint_t *sl = list;
-	listint_t *fa = list;
+	listint_t *sl = mynot;
+	listint_t *fa = mynot;
 
 	while (fa && fa->next)
 	{
