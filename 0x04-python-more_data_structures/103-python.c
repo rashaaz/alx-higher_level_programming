@@ -6,7 +6,7 @@ void print_python_bytes(PyObject *p);
  * print_python_list_info - Prints basic information
  * @p: Pointer
  */
-void print_python_list(PyObject *p);
+void print_python_list(PyObject *p)
 {
 	int size, al, i;
 	const char *typ;
