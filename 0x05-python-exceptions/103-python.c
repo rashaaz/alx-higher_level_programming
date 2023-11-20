@@ -72,7 +72,7 @@ void print_python_float(PyObject *p)
 		return;
 	}
 	e = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %s/n",
+	printf("  value: %s\n",
 			PyOS_double_to_string(e, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
 }
 
