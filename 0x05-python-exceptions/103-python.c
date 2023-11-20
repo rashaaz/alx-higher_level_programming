@@ -4,10 +4,10 @@
 #include <floatobject.h>
 
 /**
- * print_python_list_info - Prints basic information
+ * print_python_list - Prints basic information
  * @p: Pointer
  */
-void print_python_list(PyObject *p);
+void print_python_list(PyObject *p)
 {
 	int i;
 
