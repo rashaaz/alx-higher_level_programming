@@ -1,6 +1,6 @@
+#include <Python.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <Python.h>
 #include <floatobject.h>
 
 /**
@@ -30,7 +30,6 @@ void print_python_list(PyObject *p)
 			print_python_float(((PyListObject *)p)->ob_item[i]);
 	}
 }
-
 /**
  * print_python_bytes - Prints information about a Python
  * @p: pointer
@@ -55,10 +54,8 @@ void print_python_bytes(PyObject *p)
 	printf("  first %lu bytes: ", le);
 	for (i = 0; i < le; i++)
 		printf("%02hhx%s", st[i], i + 1 < le ? " " : "");
-
 	printf("\n");
 }
-
 /**
  * print_python_float - Prints information Python float
  * @p: PyObject pointer
@@ -75,6 +72,7 @@ void print_python_float(PyObject *p)
 		return;
 	}
 	e = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %s\n", PyOS_double_to_string(e, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
-
+	printf("  value: %s/n",
+			PyOS_double_to_string(e, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
 }
+
