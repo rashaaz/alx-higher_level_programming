@@ -55,6 +55,7 @@ void print_python_bytes(PyObject *p)
 	printf("  first %lu bytes: ", le);
 	for (i = 0; i < le; i++)
 		printf("%02hhx%s", st[i], i + 1 < le ? " " : "");
+
 	printf("\n");
 }
 
