@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define a class MagicClass."""
+"""Define  MagicClass."""
 
 import math
 
@@ -11,16 +11,16 @@ class MagicClass:
         """Initialize a new MagicClass.
 
         Args:
-            radius (int or float): The radius of the circle.
+            radius (int or float):  radius of  circle.
         """
         if type(radius) not in [int, float]:
             raise TypeError("radius must be a number")
         self.__radius = radius
 
     def area(self):
-        """Calculate the area of the circle."""
+        """the area of the circle."""
         return self.__radius ** 2 * math.pi
 
     def circumference(self):
-        """Calculate the circumference of the circle."""
+        """circumference of the circle."""
         return 2 * math.pi * self.__radius
