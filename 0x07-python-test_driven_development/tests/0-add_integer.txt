@@ -1,0 +1,113 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+---------------------
+
+Import function from module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Test case with a single integer argument:
+
+    >>> add_integer(15)
+    113
+    
+Test case with a single float argument:
+
+    >>> add_integer(22.5)
+    120
+
+Test case with two integer arguments:
+
+    >>> add_integer(35, 20)
+    55
+
+Test case with one positive and one negative integer argument:
+
+    >>> add_integer(75, -35)
+    40
+
+Test case with a single negative float argument:
+
+    >>> add_integer(-14.75)
+    84
+
+Test case with a single integer argument and default second argument:
+
+    >>> add_integer(0)
+    98
+
+Test case with an integer and a float argument:
+
+    >>> add_integer(28, 6.5)
+    34
+    
+Test case with one negative and one positive integer argument:
+
+    >>> add_integer(-13947692, 57234)
+    -13890458
+    
+Test case with a float and an integer argument:
+
+    >>> add_integer(456.789, 123)
+    579
+
+Test case with two float arguments:
+
+    >>> add_integer(4.2, 3.8)
+    7
+    
+Test case with two large integer arguments:
+
+    >>> add_integer(987654321, 123456789)
+    1111111110
+
+Test case with float infinity as one of the arguments:
+
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Test case with an invalid first argument:
+
+    >>> add_integer("test", 0)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Test case with float NaN as one of the arguments:
+
+    >>> add_integer(0, float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Test case with an invalid second argument:
+
+    >>> add_integer(987654321, [])
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+Test case with both arguments being invalid:
+
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Test case with two string arguments:
+
+    >>> add_integer("foo", "bar")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+Test case with float overflow as one of the arguments:
+    >>> add_integer(float('inf'), 0)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+    
