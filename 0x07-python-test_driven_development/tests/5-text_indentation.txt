@@ -1,0 +1,135 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test without delimiters:
+    >>> text_indentation("Greetings from rasha")
+    Greetings from rasha
+
+Test with leading spaces in the and:
+    >>> text_indentation("Hol          ")
+    Hol
+
+Test with leading spaces at the beginning of the string:
+    >>> text_indentation("        Welcome to the Future")
+    Welcome to the Future
+    
+Test with a string containing spaces at both ends:
+    >>> text_indentation("        Welcome to the Future          ")
+    Welcome to the Future
+    
+Test with an empty string:
+    >>> text_indentation("")
+
+Test with a string containing only spaces:
+    >>> text_indentation("      ")
+
+Test with a simple string containing a colon:
+    >>> text_indentation("Introduction: The Beginning")
+    Introduction:
+    <BLANKLINE>
+    The Beginning
+
+Test with delimiters and spaces:
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test with a newline character:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Test with two consecutive newline characters:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+Test with a newline character in the middle:
+    >>> text_indentation("rasha\n\n")
+    rasha
+    <BLANKLINE>
+
+Test with all delimiters:
+    >>> text_indentation("Journey: Beyond Limits? Destination. Unknown")
+    Journey:
+    <BLANKLINE>
+    Beyond Limits?
+    <BLANKLINE>
+    Destination.
+    <BLANKLINE>
+    Unknown
+
+Test with all spaces:
+    >>> text_indentation("   Embrace   :     Possibilities    ?    Innovate.    Succeed")
+    Embrace:
+    <BLANKLINE>
+    Possibilities?
+    <BLANKLINE>
+    Innovate.
+    <BLANKLINE>
+    Succeed
+
+Test with all spaces at the end:
+    >>> text_indentation("Hello   :     name    ?    rasha.    saeed     ")
+    Hello:
+    <BLANKLINE>
+    name?
+    <BLANKLINE>
+    rasha.
+    <BLANKLINE>
+    saeed
+
+Test delimiters:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test with just delimiters and spaces:
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+Test with non-indent inside indent:
+    >>> text_indentation("?Hi.")
+    ?
+    <BLANKLINE>
+    Hi.
+    <BLANKLINE>
+
+Test with existing newlines and delimiters:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test with None:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test with a number and no string:
+    >>> text_indentation(55)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
