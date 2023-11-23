@@ -1,32 +1,32 @@
 #!/usr/bin/python3
-"""Unit tests for the max_integer function covering different scenarios.
+"""Unittest for max_integer([..])
 """
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
-    """Unit tests for the max_integer function"""
+    """Unittest for max_integer([..])"""
     def test_maximum_at_beginning(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([5, 4, 3, 2]), 5)
 
     def test_max_integer_with_string(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer("rasha"), "s")
 
     def test_max_integer_with_nested_lists(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([[], [2], [6], [3, 9]]), [6])
 
     def test_ssstr_listtt(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer([["foo"], ["boo"], ["abc"], ["sic"], ["ric"]]),
             ["sic"])
 
     def test_is_an_fls_lge(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [199872.7619047619, 115249.8813559322, 37972.944444444445,
@@ -64,11 +64,11 @@ class TestMaxInteger(unittest.TestCase):
                     142333.11764705883, 199123.75]), 2503567)
 
     def test_order_seque(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([5, 6, 7, 8]), 8)
 
     def test_ps_d_neas_rg(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [-6300, 9700, -8600, 4400, 6200, -2000, -9400, -6300,
@@ -85,23 +85,23 @@ class TestMaxInteger(unittest.TestCase):
                     800, -3400, -2500, -3300, 6900, 9600]), 9800)
 
     def test_no_argument(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer(), None)
 
     def test_emp_lis(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([]), None)
 
     def test_first(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([99]), 99)
 
     def test_ident_elements(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([4, 4, 4, 4]), 4)
 
     def test_ntes(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [-6105600, -850000, -560000, -3088000, -6700000, -4800000,
@@ -126,20 +126,20 @@ class TestMaxInteger(unittest.TestCase):
                     -2839000, -2586600, -9941000, -3136600]), -71000)
 
     def test_i_ad_flts(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [5, 77.7, -50, -10, 800, 8888, -50000, 7777.7]), 8888)
 
     def test_fls(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [.00123, .457568, .02345, .23423434, .45675674, .678678,
                     .867090, .74653, .5745375]), 0.86709)
 
     def test_flts_lge(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer(
                 [0.36701449486981136, 0.22932193120425423, 17.269673745943177,
@@ -187,66 +187,66 @@ class TestMaxInteger(unittest.TestCase):
                     2.1498649449691807]), 29.496355326217376)
 
     def test_ma_iner_wh_nuic_sng(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer("467843259"), "9")
 
     def test_inf(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([99, float('inf'), float('-inf')]),
                          float('inf'))
 
     def test_nan(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([99, float('nan'), 100]), 100)
 
     def test_mix_lt(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
             max_integer([[], [2], [4], [2, 9], 99, "bar"])
 
     def test_mi_lit_int_sr(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
             max_integer([99, "bar"])
 
     def test_large_ordered_sequence(self):
-        """Unit tests for the max_integer function."""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([2, 4, 6, 8, 10, 12, 14, 16, 18, 20]), 20)
 
     def test_unordered_sequence(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([1, 3, 4, 2]), 4)
 
     def test_larg_unor_seq(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(max_integer([30, 60, 90, 20, 1000, 80, 95,
                                      110, 250, 500]), 1000)
 
     def test_pos_a_net(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         self.assertEqual(
             max_integer([-30, 60, 95, 20, -1000, 85, 100, 110, -250, -500]),
             110)
 
     def test_none(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
             max_integer(None)
 
     def test_d(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
             max_integer([{1: 5, 8: 12}, {"x": "y"}])
 
     def test_int(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
-            max_integer(98)
+            max_integer(66)
 
     def test_fm(self):
-        """Unit tests for the max_integer function"""
+        """Unittest for max_integer([..])"""
         with self.assertRaises(TypeError):
-            max_integer(9.8)
+            max_integer(5.8)
 
 
 if __name__ == '__main__':
