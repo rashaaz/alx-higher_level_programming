@@ -7,14 +7,18 @@ Using ``matrix_divided``
 Import module:
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-Test example matrix:
-    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], 2)
-    [[2.0, 4.0, 8.0], [1.0, 2.0, 3.0]]
-
 Test single element matrix:
     >>> matrix_divided([[4]], 2)
     [[2.0]]
 
+Test division by positive infinity:
+    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Test division by negative number:
+    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], -3)
+    [[-1.33, -2.67, -5.33], [-0.67, -1.33, -2.0]]
+    
 Test unchanged matrix:
     >>> m = [[4, 8, 16], [2, 4, 6]]
     >>> matrix_divided(m, 2)
@@ -22,17 +26,9 @@ Test unchanged matrix:
     >>> m[1][1]
     4
 
-Test division by negative number:
-    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], -3)
-    [[-1.33, -2.67, -5.33], [-0.67, -1.33, -2.0]]
-
-Test division by positive infinity:
-    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], float('inf'))
-    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
-
-Test division by NaN:
-    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], float('nan'))
-    [[nan, nan, nan], [nan, nan, nan]]
+Test example matrix:
+    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], 2)
+    [[2.0, 4.0, 8.0], [1.0, 2.0, 3.0]]
 
 Test division by zero should raise ZeroDivisionError:
     >>> matrix_divided([[4, 8, 16], [2, 4, 6]], 0)
@@ -40,11 +36,9 @@ Test division by zero should raise ZeroDivisionError:
     ...
     ZeroDivisionError: division by zero
 
-Test first argument being None:
-    >>> matrix_divided(none, 1)
-    Traceback (most recent call last):
-    ...
-    NameError: name 'none' is not defined
+Test division by NaN:
+    >>> matrix_divided([[4, 8, 16], [2, 4, 6]], float('nan'))
+    [[nan, nan, nan], [nan, nan, nan]]
 
 Test empty matrix should raise TypeError:
     >>> matrix_divided([[]], 10)
@@ -57,6 +51,12 @@ Test matrix with non number
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Test first argument being None:
+    >>> matrix_divided(none, 1)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'none' is not defined
 
 Test matrix with different rows should raise TypeError:
     >>> matrix_divided([[4, 8, 16], [2, 6]], 2)
@@ -78,17 +78,17 @@ Test first argument being a string should raise TypeError:
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 
-Test first argument being an empty list should raise TypeError:
-    >>> matrix_divided([], 1)
-    Traceback (most recent call last):
-    ...
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
 Test division by a non-number should raise TypeError:
     >>> matrix_divided([[4]], "foo")
     Traceback (most recent call last):
     ...
     TypeError: div must be a number
+
+Test first argument being an empty list should raise TypeError:
+    >>> matrix_divided([], 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 Test missing one or more arguments should raise TypeError:
     >>> matrix_divided()
