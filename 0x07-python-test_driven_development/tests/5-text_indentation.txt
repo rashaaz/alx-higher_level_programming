@@ -7,33 +7,19 @@ Using ``text_indentation``
 Import module:
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Test without delimiters:
-    >>> text_indentation("Greetings from rasha")
-    Greetings from rasha
-
 Test with leading spaces in the and:
     >>> text_indentation("Hol          ")
     Hol
-
-Test with leading spaces at the beginning of the string:
-    >>> text_indentation("        Welcome to the Future")
-    Welcome to the Future
     
-Test with a string containing spaces at both ends:
-    >>> text_indentation("        Welcome to the Future          ")
-    Welcome to the Future
-    
-Test with an empty string:
-    >>> text_indentation("")
+Test with non-indent inside indent:
+    >>> text_indentation("?Hi.")
+    ?
+    <BLANKLINE>
+    Hi.
+    <BLANKLINE>
 
 Test with a string containing only spaces:
     >>> text_indentation("      ")
-
-Test with a simple string containing a colon:
-    >>> text_indentation("Introduction: The Beginning")
-    Introduction:
-    <BLANKLINE>
-    The Beginning
 
 Test with delimiters and spaces:
     >>> text_indentation("      ?:  :  ")
@@ -48,16 +34,22 @@ Test with a newline character:
     >>> text_indentation("\n")
     <BLANKLINE>
 
-Test with two consecutive newline characters:
-    >>> text_indentation("\n\n")
-    <BLANKLINE>
-    <BLANKLINE>
-
 Test with a newline character in the middle:
     >>> text_indentation("rasha\n\n")
     rasha
     <BLANKLINE>
 
+Test without delimiters:
+    >>> text_indentation("Greetings from rasha")
+    Greetings from rasha
+
+Test with a string containing spaces at both ends:
+    >>> text_indentation("        Welcome to the Future          ")
+    Welcome to the Future
+    
+Test with an empty string:
+    >>> text_indentation("")
+    
 Test with all delimiters:
     >>> text_indentation("Journey: Beyond Limits? Destination. Unknown")
     Journey:
@@ -78,6 +70,11 @@ Test with all spaces:
     <BLANKLINE>
     Succeed
 
+Test with just delimiters and spaces:
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
 Test with all spaces at the end:
     >>> text_indentation("Hello   :     name    ?    rasha.    saeed     ")
     Hello:
@@ -97,16 +94,9 @@ Test delimiters:
     :
     <BLANKLINE>
 
-Test with just delimiters and spaces:
-    >>> text_indentation("     ?   ")
-    ?
+Test with two consecutive newline characters:
+    >>> text_indentation("\n\n")
     <BLANKLINE>
-
-Test with non-indent inside indent:
-    >>> text_indentation("?Hi.")
-    ?
-    <BLANKLINE>
-    Hi.
     <BLANKLINE>
 
 Test with existing newlines and delimiters:
@@ -122,6 +112,16 @@ Test with existing newlines and delimiters:
     :
     <BLANKLINE>
 
+Test with leading spaces at the beginning of the string:
+    >>> text_indentation("        Welcome to the Future")
+    Welcome to the Future
+
+Test with a simple string containing a colon:
+    >>> text_indentation("Introduction: The Beginning")
+    Introduction:
+    <BLANKLINE>
+    The Beginning
+    
 Test with None:
     >>> text_indentation(None)
     Traceback (most recent call last):
