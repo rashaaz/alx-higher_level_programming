@@ -7,34 +7,6 @@ Using ``matrix_mul``
 Import module:
     >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
 
-Test multiplication of 2 bad matrices:
-    >>> matrix_mul([[10, 20, 30], [30, 40, 50]], [[1, 2], [3, 4]])
-    Traceback (most recent call last):
-    ...
-    ValueError: m_a and m_b can't be multiplied
-
-Test multiplication of 2 valid matrices:
-    >>> matrix_mul([[1, 2], [3, 4], [3, 4]], [[5, 6, 1], [7, 8, 2]])
-    [[19, 22, 5], [43, 50, 11], [43, 50, 11]]
-
-Test multiplication with a singly empty matrix:
-    >>> matrix_mul([], [[300]])
-    Traceback (most recent call last):
-    ...
-    ValueError: m_a can't be empty
-
-Test multiplication with a singly empty matrix:
-    >>> matrix_mul([[]], [[300]])
-    Traceback (most recent call last):
-    ...
-    ValueError: m_a can't be empty
-
-Test multiplication with an empty second matrix:
-    >>> matrix_mul([[400]], [])
-    Traceback (most recent call last):
-    ...
-    ValueError: m_b can't be empty
-
 Test multiplication with a doubly empty matrix:
     >>> matrix_mul([[300]], [[]])
     Traceback (most recent call last):
@@ -63,18 +35,6 @@ Test multiplication with an integer list in the first matrix:
     ...
     TypeError: m_a must be a list of lists
 
-Test multiplication with an integer list in the second matrix:
-    >>> matrix_mul([[800]], [200, 400, 600])
-    Traceback (most recent call last):
-    ...
-    TypeError: m_b must be a list of lists
-
-Test multiplication with a non-numeric element in the first matrix:
-    >>> matrix_mul([["orange"]], [[200, 400, 600]])
-    Traceback (most recent call last):
-    ...
-    TypeError: m_a should contain only integers or floats
-
 Test multiplication with a non-numeric element in the second matrix:
     >>> matrix_mul([[200, 400, 600]], [["rasha"]])
     Traceback (most recent call last):
@@ -98,6 +58,46 @@ Test multiplication with a missing second matrix:
     Traceback (most recent call last):
     ...
     TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+Test multiplication with an integer list in the second matrix:
+    >>> matrix_mul([[800]], [200, 400, 600])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list of lists
+
+Test multiplication with a non-numeric element in the first matrix:
+    >>> matrix_mul([["orange"]], [[200, 400, 600]])
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+
+Test multiplication of 2 bad matrices:
+    >>> matrix_mul([[10, 20, 30], [30, 40, 50]], [[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+
+Test multiplication with an empty second matrix:
+    >>> matrix_mul([[400]], [])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+
+Test multiplication of 2 valid matrices:
+    >>> matrix_mul([[1, 2], [3, 4], [3, 4]], [[5, 6, 1], [7, 8, 2]])
+    [[19, 22, 5], [43, 50, 11], [43, 50, 11]]
+
+Test multiplication with a singly empty matrix:
+    >>> matrix_mul([], [[300]])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+
+Test multiplication with a singly empty matrix:
+    >>> matrix_mul([[]], [[300]])
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
 
 Test multiplication with missing both matrices:
     >>> matrix_mul()
