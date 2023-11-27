@@ -6,7 +6,7 @@ class Rectangle:
     """int: Rectangle class with private width and height attributes"""
 
     number_of_instances = 0
-    """type: Initialized to 0. Incremented instance instantiationi"""
+    """type: Initialized to 0. Incremented instance instantiation"""
 
     print_symbol = "#"
     """Initialized to #. Used as a symbol for string representation"""
@@ -70,3 +70,41 @@ class Rectangle:
         """Print a message when an instance of Rectangle is deleted"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Return the bigger rectangle based on the area
+
+        Args:
+            rect_1 (Rectangle): The first rectangle.
+            rect_2 (Rectangle): The second rectangle.
+
+        Raises:
+            TypeError: If rect_1 or rect_2 is not  instance Rectangle.
+
+        Return:
+            Rectangle: The rectangle with a larger or equal area.
+        """
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        area_1 = rect_1.area()
+        area_2 = rect_2.area()
+
+        if area_2 > area_1:
+            return rect_2
+        return rect_1
+
+    @classmethod
+    def square(cls, size=0):
+        """Create a square Rectangle instance
+
+        Args:
+            size (int): The size of the square.
+
+        Returns:
+            Rectangle: A new Rectangle width and height equal to size.
+        """
+        return cls(size, size)
