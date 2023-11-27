@@ -64,7 +64,8 @@ class Rectangle:
 
     def __repr__(self):
         """Return a string reproduction..."""
-        return "Rectangle("+ str(self.__width) + ", " + str(self.__height) +")"
+        s = str(self.__width)
+        return "Rectangle(" + s + ", " + str(self.__height) + ")"
 
     def __del__(self):
         """Print a message when an instance of Rectangle is deleted"""
