@@ -52,5 +52,5 @@ class Rectangle:
         """Return a string representation of the rectangle"""
         strn = ""
         if self.__width != 0 or self.__height != 0:
-            strn += '\n'.join('#' * self.__width for i in range(self.__height))
+            strn += "\n".join('#' * self.__width for i in range(self.__height))
         return strn
