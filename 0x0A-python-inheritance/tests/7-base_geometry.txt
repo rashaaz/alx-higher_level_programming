@@ -19,15 +19,15 @@ Instance method check:
     >>> type(BaseGeometry.__dict__['area'])
     <class 'function'>
 
-Called area method using class with no args:
-    >>> ts.__class__.area()
-    Traceback (most recent call last):
-    TypeError: area() missing 1 required positional argument: 'self'
-
 area method args test (1 arg):
     >>> ts.area(12)
     Traceback (most recent call last):
     TypeError: area() takes 1 positional argument but 2 were given
+
+Called area method using class with no args:
+    >>> ts.__class__.area()
+    Traceback (most recent call last):
+    TypeError: area() missing 1 required positional argument: 'self'
 
 area method single argument test:
     >>> ts.area()
@@ -51,20 +51,23 @@ integer_validator method arg test (0 args):
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
     
-integer_validator method arg test (invalid number of args):
-    >>> ts.integer_validator(5, 5, 5)
-    Traceback (most recent call last):
-    TypeError: integer_validator() takes 3 positional arguments but 4 were given
-
-Instance method of float.0 value for integer_validator:
-    >>> ts.integer_validator("foo", 7.0)
-    Traceback (most recent call last):
-    TypeError: foo must be an integer
-
 Instance method of float.x value for integer_validator:
     >>> ts.integer_validator("arg", 7.11)
     Traceback (most recent call last):
     TypeError: arg must be an integer
+
+Instance method of 0 value for integer_validator:
+    >>> ts.integer_validator("key", 0)
+    Traceback (most recent call last):
+    ValueError: key must be greater than 0
+
+Instance method of empty string for integer_validator:
+    >>> ts.integer_validator(None, 5)
+
+Instance method of tuple for integer_validator:
+    >>> ts.integer_validator("soo", (4, 5))
+    Traceback (most recent call last):
+    TypeError: soo must be an integer
 
 Instance method of string value for integer_validator:
     >>> ts.integer_validator("seewt", "shug")
@@ -75,21 +78,6 @@ Instance method of bool value for integer_validator:
     >>> ts.integer_validator("jen", True)
     Traceback (most recent call last):
     TypeError: jen must be an integer
-
-Instance method of list value for integer_validator:
-    >>> ts.integer_validator("s", [5])
-    Traceback (most recent call last):
-    TypeError: s must be an integer
-
-Instance method of None value for integer_validator:
-    >>> ts.integer_validator("soo", None)
-    Traceback (most recent call last):
-    TypeError: soo must be an integer
-
-Instance method of 0 value for integer_validator:
-    >>> ts.integer_validator("key", 0)
-    Traceback (most recent call last):
-    ValueError: key must be greater than 0
 
 Instance method of negative value for integer_validator:
     >>> ts.integer_validator("key", -1012)
@@ -105,13 +93,25 @@ Instance method of ok value 2 for integer_validator:
 Instance method of empty string for integer_validator:
     >>> ts.integer_validator("", 5)
 
-Instance method of empty string for integer_validator:
-    >>> ts.integer_validator(None, 5)
+Instance method of list value for integer_validator:
+    >>> ts.integer_validator("s", [5])
+    Traceback (most recent call last):
+    TypeError: s must be an integer
 
-Instance method of tuple for integer_validator:
-    >>> ts.integer_validator("soo", (4, 5))
+Instance method of None value for integer_validator:
+    >>> ts.integer_validator("soo", None)
     Traceback (most recent call last):
     TypeError: soo must be an integer
+
+integer_validator method arg test (invalid number of args):
+    >>> ts.integer_validator(5, 5, 5)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Instance method of float.0 value for integer_validator:
+    >>> ts.integer_validator("foo", 7.0)
+    Traceback (most recent call last):
+    TypeError: foo must be an integer
 
 Instance method of dic for integer_validator:
     >>> ts.integer_validator("soo", {4, 5})
