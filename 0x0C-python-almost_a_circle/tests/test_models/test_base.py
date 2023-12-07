@@ -9,12 +9,12 @@ from models.square import Square
 class TestBaseMethods(unittest.TestCase):
     """Test cases for the Base class."""
 
-    def  my_custom_setup_method(self):
+    def setUp(self):
         """Set up method to initialize test cases."""
         Base._Base__nb_objects = 0
         pass
 
-    def tearDown_method(self):
+    def tearDown(self):
         """Tear down method to clean up after each test case."""
         pass
 
