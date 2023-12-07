@@ -28,10 +28,10 @@ class TestBaseMethods(unittest.TestCase):
 
     def test_instantiation(self):
         """Test case for checking instantiation of Base class."""
-        b = Base()
-        self.assertEqual(str(type(b)), "<class 'models.base.Base'>")
-        self.assertEqual(b.__dict__, {"id": 1})
-        self.assertEqual(b.id, 1)
+        c = Base()
+        self.assertEqual(str(type(c)), "<class 'models.base.Base'>")
+        self.assertEqual(c.__dict__, {"id": 1})
+        self.assertEqual(c.id, 1)
 
     def test_constructor_with_args(self):
         """Test case for checking constructor of Base class."""
@@ -85,31 +85,30 @@ were given"
         c = Base(id=ii)
         self.assertEqual(c.id, ii)
 
-
     def test_to_json_string_error(self):
         """Test case for checking to_json_string method in Base class."""
         with self.assertRaises(TypeError) as es:
             Base.to_json_string()
-        s = "to_json_string() missing 1 required positional argument: \
+        m = "to_json_string() missing 1 required positional argument: \
 'list_dictionaries'"
-        self.assertEqual(str(es.exception), s)
+        self.assertEqual(str(es.exception), m)
 
         self.assertEqual(Base.to_json_string(None), "[]")
         self.assertEqual(Base.to_json_string([]), "[]")
-        c = [{'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
-             'height': 34340}]
+        c = [{'x': 111, 'y': 20456, 'width': 321123, 'id': 533355,
+             'height': 35350}]
         self.assertEqual(len(Base.to_json_string(c)),
                          len(str(c)))
-        c = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
+        c = [{'x': 4, 'y': 5, 'width': 6, 'id': 7, 'height': 8}]
         self.assertEqual(len(Base.to_json_string(c)),
                          len(str(c)))
-        c = [{"foobarrooo": 989898}]
+        c = [{"soosarrooo": 909090}]
         self.assertEqual(Base.to_json_string(c),
-                         '[{"foobarrooo": 989898}]')
+                         '[{"soosarrooo": 909090}]')
 
-        c = [{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]
+        c = [{"soosarrooo": 909090}, {"def": 456}, {"HI": 0}]
         self.assertEqual(Base.to_json_string(c),
-                         '[{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]')
+                         '[{"soosarrooo": 909090}, {"def": 456}, {"HI": 0}]')
 
         c = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5},
              {'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
@@ -123,83 +122,82 @@ were given"
         self.assertEqual(Base.to_json_string(c),
                          '[{}, {}]')
 
-        m1 = Rectangle(10, 7, 2, 8)
-        dictionary = m1.to_dictionary()
-        json_dictionary = Base.to_json_string([dictionary])
-        dictionary = str([dictionary])
-        dictionary = dictionary.replace("'", '"')
-        self.assertEqual(dictionary, json_dictionary)
+        m1 = Rectangle(11, 8, 3, 9)
+        dic = m1.to_dictionary()
+        js_dic = Base.to_json_string([dic])
+        dic = str([dic])
+        dic = dic.replace("'", '"')
+        self.assertEqual(dic, js_dic)
 
         m1 = Rectangle(10, 7, 2, 8)
         m2 = Rectangle(1, 2, 3, 4)
         m3 = Rectangle(2, 3, 4, 5)
-        dictionary = [m1.to_dictionary(), m2.to_dictionary(),
-                      m3.to_dictionary()]
-        json_dictionary = Base.to_json_string(dictionary)
-        dictionary = str(dictionary)
-        dictionary = dictionary.replace("'", '"')
-        self.assertEqual(dictionary, json_dictionary)
+        dic = [m1.to_dictionary(), m2.to_dictionary(),
+               m3.to_dictionary()]
+        js_dic = Base.to_json_string(dic)
+        dic = str(dic)
+        dic = dic.replace("'", '"')
+        self.assertEqual(dic, js_dic)
 
-        m1 = Square(10, 7, 2)
-        dictionary = m1.to_dictionary()
-        json_dictionary = Base.to_json_string([dictionary])
-        dictionary = str([dictionary])
-        dictionary = dictionary.replace("'", '"')
-        self.assertEqual(dictionary, json_dictionary)
+        m1 = Square(11, 8, 3)
+        dic = m1.to_dictionary()
+        js_dic = Base.to_json_string([dic])
+        dic = str([dic])
+        dic = dic.replace("'", '"')
+        self.assertEqual(dic, js_dic)
 
-        m1 = Square(10, 7, 2)
-        m2 = Square(1, 2, 3)
-        m3 = Square(2, 3, 4)
-        dictionary = [m1.to_dictionary(), m2.to_dictionary(),
-                      m3.to_dictionary()]
-        json_dictionary = Base.to_json_string(dictionary)
-        dictionary = str(dictionary)
-        dictionary = dictionary.replace("'", '"')
-        self.assertEqual(dictionary, json_dictionary)
-
+        m1 = Square(11, 8, 3)
+        m2 = Square(5, 3, 4)
+        m3 = Square(3, 4, 5)
+        dic = [m1.to_dictionary(), m2.to_dictionary(),
+               m3.to_dictionary()]
+        js_dic = Base.to_json_string(dic)
+        dic = str(dic)
+        dic = dic.replace("'", '"')
+        self.assertEqual(dic, js_dic)
 
     def test_from_json_string_error(self):
         """Test case for checking from_json_string"""
         with self.assertRaises(TypeError) as c:
             Base.from_json_string()
-        s = "from_json_string() missing 1 required positional argument: \
+        t = "from_json_string() missing 1 required positional argument: \
 'json_string'"
-        self.assertEqual(str(c.exception), s)
+        self.assertEqual(str(c.exception), t)
 
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string(""), [])
 
-        s = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}, \
+        ss = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}, \
 {"x": 101, "y": 20123, "width": 312321, "id": 522244, "height": 34340}]'
         m = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5},
              {'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
              'height': 34340}]
-        self.assertEqual(Base.from_json_string(s), m)
+        self.assertEqual(Base.from_json_string(ss), m)
 
         m = [{}, {}]
-        s = '[{}, {}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        ss = '[{}, {}]'
+        self.assertEqual(Base.from_json_string(ss), m)
         m = [{}]
-        s = '[{}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        ss = '[{}]'
+        self.assertEqual(Base.from_json_string(ss), m)
 
-        m = [{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]
-        s = '[{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        m = [{"soosarrooo": 909090}, {"def": 456}, {"HI": 0}]
+        ss = '[{"soosarrooo": 909090}, {"def": 456}, {"HI": 0}]'
+        self.assertEqual(Base.from_json_string(ss), m)
 
-        m = [{"foobarrooo": 989898}]
-        s = '[{"foobarrooo": 989898}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        m = [{"soosarrooo": 909090}]
+        ss = '[{"soosarrooo": 909090}]'
+        self.assertEqual(Base.from_json_string(ss), m)
 
         m = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
-        s = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        ss = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}]'
+        self.assertEqual(Base.from_json_string(ss), m)
 
         m = [{'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
              'height': 34340}]
-        s = '[{"x": 101, "y": 20123, "width": 312321, "id": 522244, \
+        ss = '[{"x": 101, "y": 20123, "width": 312321, "id": 522244, \
 "height": 34340}]'
-        self.assertEqual(Base.from_json_string(s), m)
+        self.assertEqual(Base.from_json_string(ss), m)
 
         li_in = [
             {'id': 89, 'width': 10, 'height': 4},
@@ -209,12 +207,11 @@ were given"
             Rectangle.to_json_string(li_in))
         self.assertEqual(li_in, li_out)
 
-
     def test_save_to_file(self):
         """Test case for checking save_to_file method in Base class."""
         import os
-        m1 = Rectangle(10, 7, 2, 8)
-        m2 = Rectangle(2, 4)
+        m1 = Rectangle(11, 8, 3, 9)
+        m2 = Rectangle(3, 5)
         Rectangle.save_to_file([m1, m2])
 
         with open("Rectangle.json", "r") as f:
@@ -232,7 +229,7 @@ were given"
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
-        m2 = Rectangle(2, 4)
+        m2 = Rectangle(3, 5)
         Rectangle.save_to_file([m2])
         with open("Rectangle.json", "r") as f:
             self.assertEqual(len(f.read()), 52)
@@ -254,21 +251,19 @@ were given"
         with open("Square.json", "r") as f:
             self.assertEqual(len(f.read()), 38)
 
-
     def test_create_method(self):
         """Test case for checking create method in Base class."""
-        m1 = Rectangle(3, 5, 1)
-        m1_dictionary = m1.to_dictionary()
-        m2 = Rectangle.create(**m1_dictionary)
+        m1 = Rectangle(4, 6, 2)
+        m1_dic = m1.to_dictionary()
+        m2 = Rectangle.create(**m1_dic)
         self.assertEqual(str(m1), str(m2))
         self.assertFalse(m1 is m2)
         self.assertFalse(m1 == m2)
 
-    
     def test_load_from_file(self):
         """Test case for checking load_from_file method in Base class."""
-        m1 = Rectangle(10, 7, 2, 8)
-        m2 = Rectangle(2, 4)
+        m1 = Rectangle(11, 8, 3, 9)
+        m2 = Rectangle(3, 5)
         li_in = [m1, m2]
         Rectangle.save_to_file(li_in)
         li_out = Rectangle.load_from_file()
@@ -286,6 +281,7 @@ were given"
         self.assertEqual(str(li_in[0]), str(li_out[0]))
         self.assertNotEqual(id(li_in[1]), id(li_out[1]))
         self.assertEqual(str(li_in[1]), str(li_out[1]))
+
 
 if __name__ == "__main__":
     unittest.main()
