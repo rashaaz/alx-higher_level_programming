@@ -19,7 +19,6 @@ class TestRectanglemeyhod(unittest.TestCase):
         """Clean up after each test case"""
         pass
 
-
     def test_name_class(self):
         """Test class name"""
         self.assertEqual(str(Rectangle),
@@ -150,7 +149,6 @@ given"
         self.assertEqual(h.height, 100)
         self.assertEqual(h.x, 101)
         self.assertEqual(h.y, 102)
-
 
     def invalid_types(self):
         """Helper function to provide a list of invalid types"""
@@ -372,7 +370,6 @@ given"
 #####
 """
         self.assertEqual(a.getvalue(), ss)
-
 
     def test_r_str_eny_args_me(self):
         """Test __str__ method with no arguments"""
