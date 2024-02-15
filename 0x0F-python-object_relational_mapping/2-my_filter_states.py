@@ -9,8 +9,8 @@ if __name__ == "__main__":
     m = sh.cursor()
     m.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
     id ASC".format(sys.argv[4]))
-    sta = m.fetchall()
-    for s in sta:
+    states = m.fetchall()
+    for s in states:
         if s[1] == sys.argv[4]:
             print(s)
     m.close()
