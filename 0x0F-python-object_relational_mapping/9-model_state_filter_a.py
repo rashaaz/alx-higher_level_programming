@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-A script to connect to a MySQL database using SQLAlchemy
-and retrieve the first entry from the 'states' table
+A script to connect to a MySQL database using
+SQLAlchemy and retrieve
+entries from the 'states' table where the
+letter 'a' is present in the name
 """
 import sys
 from sqlalchemy import create_engine
@@ -15,8 +17,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=sscctt)
     session = Session()
 
-    sr = session.query(State).order_by(State.id).first()
-    if sr is None:
-        print("Nothing")
-    else:
-        print("{}: {}".format(sr.id, sr.name))
+    for sr in session.query(State).order_by(State.id):
+        if "a" in sr.name:
+            print("{}: {}".format(sr.id, sr.name))
