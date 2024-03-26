@@ -7,19 +7,19 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
-    const co = {};
-    const ta = JSON.parse(body);
-    for (const ii in ta) {
-      const task = ta[ii];
-      if (task.co === true) {
-        if (co[task.userId] === undefined) {
-          co[task.userId] = 1;
+    const completed = {};
+    const tasks = JSON.parse(body);
+    for (const i in tasks) {
+      const task = tasks[i];
+      if (task.completed === true) {
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
         } else {
-          co[task.userId]++;
+          completed[task.userId]++;
         }
       }
     }
-    console.log(co);
+    console.log(completed);
   } else {
     console.log('An error occured. Status code: ' + response.statusCode);
   }
